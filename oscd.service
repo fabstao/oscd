@@ -1,0 +1,12 @@
+[Unit]
+Description=Intel ClearLinux Openstack ConfigDrive init
+
+[Service]
+#EnvironmentFile=/etc/sysconfig/oscd
+ExecStart=/usr/local/oscd/oscd.sh
+ExecReload=/usr/local/oscd/oscd.sh
+Restart=never
+RestartSec=30s
+
+[Install]
+WantedBy=multi-user.target

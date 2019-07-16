@@ -5,19 +5,27 @@
 # Fabian Salamanca fabian.salamanca@intel.com
 # ************************************************
 
+user() {
+    useradd -m -d /home/clear clear
+    mkdir -p /home/clear/.ssh
+    cp authorized_keys /home/clear/.ssh/
+    chmod 0600 /home/clear/.ssh/authorized_keys
+    chown -R clear /home/clear/.ssh
+}
+
 WORKDIR=/usr/local/oscd
 OSCD=${WORKDIR}/oscd
 NETWORK=/configdrive/openstack/latest/network_data.json
 META=/configdrive/openstack/latest/meta_data.json
 
-IFACES=$(awk '/vnet|face/ { next; } /e[n,t].*/ {print $1}' /proc/net/dev)
-IFACE=$(echo ${IFACES} | head -1)
+IFACES=$(awk '/vnet|face/ { next; } /e[n,t].*/ {print $1}' /proc/net/dev | grep -v FACE)
+IFACE=$(echo ${IFACES} | sed 's/\://g' | head -1)
 
 if [ ! -d /configdrive ]; then
     mkdir -p /configdrive
 fi
 
-if [ ! -f /dev/sr0 ]; then
+if [ ! -b /dev/sr0 ]; then
     echo "ERROR no support for fake CD"
     exit 1
 fi
@@ -32,11 +40,11 @@ DSUDO=/etc/sudoers.d/
 if [ ! -d ${DSUDO} ]; then
     mkdir -p ${DSUDO}
 fi
-echo ${mysudo} > 
+echo ${mysudo} > ${DSUSO}/10-oscd.clear
 cd ${WORKDIR}
 cp oscd.service /usr/lib/systemd/system/
 #systemctl enable oscd.service
-${OSCD} --nics=IFACE --network=${NETWORK} --meta=${META}
+${OSCD} --nics=${IFACE} --network=${NETWORK} --meta=${META}
 cp hostname /etc/hostname
 cp 60-oscd.network /etc/systemd/network/
 user
@@ -44,11 +52,3 @@ user
 #Cleaning up
 umount /configdrive
 rm -rf /configdrive
-
-user() {
-    useradd -m -d /home/clear clear
-    mkdir -p /home/clear/.ssh
-    cp authorized_keys /home/clear/.ssh/
-    chmod 0600 /home/clear/.ssh/authorized_keys
-    chown -R clear /home/clear/.ssh
-}
