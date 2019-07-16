@@ -30,17 +30,15 @@ if [ ! -b /dev/sr0 ]; then
     exit 1
 fi
 
+echo "Attempting to read from ConfigDrive"
 mount /dev/sr0 /configdrive
 
-mysudo=<<EOF
-# User rules for clear
-clear ALL=(ALL) NOPASSWD:AL
-EOF
+mysudo="clear ALL=(ALL) NOPASSWD:ALL"
 DSUDO=/etc/sudoers.d/
 if [ ! -d ${DSUDO} ]; then
     mkdir -p ${DSUDO}
 fi
-echo ${mysudo} > ${DSUDO}/10-oscd.clear
+echo ${mysudo} > ${DSUDO}/10-oscd-user
 cd ${WORKDIR}
 cp oscd.service /usr/lib/systemd/system/
 #systemctl enable oscd.service
