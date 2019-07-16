@@ -85,6 +85,7 @@ func writeNetConfig(nfile string, nics []string) {
 		stringMask := net.IPMask(net.ParseIP(mynet.Networks[i].Netmask).To4())
 		length, _ := stringMask.Size()
 		parsed.Netmask = string(length)
+		fmt.Println("CIDR: ", parsed.Netmask)
 		for _, ns := range mynet.Services {
 			parsed.Nameservers = append(parsed.Nameservers, ns.Address)
 		}
