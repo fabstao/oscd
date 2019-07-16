@@ -9,6 +9,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"net"
 	"os"
 	"os/user"
 	"strings"
@@ -81,7 +82,9 @@ func writeNetConfig(nfile string, nics []string) {
 		parsed.Iface = nic
 		parsed.Gateway = mynet.Networks[i].Routes[i].Gateway
 		parsed.IPAddress = mynet.Networks[i].IPAddress
-		parsed.Netmask = mynet.Networks[i].Netmask
+		stringMask := net.IPMask(net.ParseIP(mynet.Networks[i].Netmask).To4())
+		length, _ := stringMask.Size()
+		parsed.Netmask = string(length)
 		for _, ns := range mynet.Services {
 			parsed.Nameservers = append(parsed.Nameservers, ns.Address)
 		}
