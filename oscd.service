@@ -5,7 +5,7 @@ Description=Intel ClearLinux Openstack ConfigDrive init
 #EnvironmentFile=/etc/sysconfig/oscd
 ExecStart=/usr/local/oscd/oscd.sh
 ExecReload=/usr/local/oscd/oscd.sh
-Restart=never
+Restart=on-abnormal
 RestartSec=30s
 
 [Install]
