@@ -1,0 +1,22 @@
+{
+    "admin_pass": "f4HAe2Cz9S8r", 
+    "random_seed": "YdVGG8JAWkNtMnUwD2CvsevVnCxRl1FjoNvbIJ8TReVC+3dHUJFvyjGX3adMrqaRJH2ZGEeKa9PltnMC/dlFISUR97TrakehPZbVkN/dZWBxqVJRpWDwzoGStKptRpTQBDjlW8CXfcUbv9dznjA81cDJtrOh4+WvE74GVzbm4h8FlQeaFr6MxUtBc99vFwdeR8os6on6x8XyCYCShQC++8pIWVlPNj2U6RSdfBh/80wZvUoJRCS8HT3TgJ4pWk0r1LKmhDJjbahbkKQ7rNeu0wYnn8HgTUt/CDQkSWBppxRQfol0ufWe5fdaYxTI3iBFOGnYxuioLuPw5E+emwmZVg6gqiaphWBZmFFZxTPg1Euot1lnGhwGgcgvZXX0FQHeaaZqysPfW6AliIcIqVzlwnZ9H4fXzw1cMKrlFJNlNtph99EntBoobecSLyXIPkHj6zFPQpSIS0srZZIxIJa2m4SjqsmMld8WVM8gVns0viStPA0Z1sU4hgoZXzvmCZ4ZmF3dyjBAR0HiT/NkwnIGHn5QlwR1iQXNfnOjmJRlgTYA4TWPrVFgohz4h+MDINGD5i/7gkdii3uxFcCvE+Q/8DjS1p5nqILuAJGtPw4vUSRKt/WolHN9f7c7mDvqSpxV06YZdM3hEQVABHQiPstBBAd/+GOPf2qoE1lwGu5hSlA=", 
+    "uuid": "c470bab2-5b3b-4965-9445-e0778e8789f7", 
+    "availability_zone": "nova", 
+    "keys": [
+        {
+            "data": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCpoaZgAIm5CZcqvA6MwHYi0LoNBIW6bJ8+ttbsIyq/uU+XuqUJp/JUr0rlkRHFG1iox8sY8GVRU02WmyyaScl9FapPSQDko/oRWtXVJVovyzs06Lrkwa+ZW+Isod5BifPFh3ennMKq9BLEMMZKE9R3QkRaiFWxeaRTJiHJW2/uaA5Uchka7ei4vVZOqRyDi9/Y3XZe5rj3htD9uIXGPgOHTvWyu1mbwoLoSAIH6Lo3S1bKUknMVx+hrP8oBk++S2iPfIRqCkYeTDWM9XGPPOyN8A7uhnTP4m6MZyzwIwV9B10hR/XvPRt+Cq07Tiu/CKl35zcxPnr1E3xdGPfjc9jB fsalaman@gmssspoactl01\n", 
+            "type": "ssh", 
+            "name": "maas"
+            }
+        ], 
+    "hostname": "clvm02.novalocal", 
+    "launch_index": 0, 
+    "devices": [], 
+    "public_keys": 
+        {
+            "maas": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCpoaZgAIm5CZcqvA6MwHYi0LoNBIW6bJ8+ttbsIyq/uU+XuqUJp/JUr0rlkRHFG1iox8sY8GVRU02WmyyaScl9FapPSQDko/oRWtXVJVovyzs06Lrkwa+ZW+Isod5BifPFh3ennMKq9BLEMMZKE9R3QkRaiFWxeaRTJiHJW2/uaA5Uchka7ei4vVZOqRyDi9/Y3XZe5rj3htD9uIXGPgOHTvWyu1mbwoLoSAIH6Lo3S1bKUknMVx+hrP8oBk++S2iPfIRqCkYeTDWM9XGPPOyN8A7uhnTP4m6MZyzwIwV9B10hR/XvPRt+Cq07Tiu/CKl35zcxPnr1E3xdGPfjc9jB fsalaman@gmssspoactl01\n"
+            }, 
+    "project_id": "101d94cecf5d421091aaa538b309c96b", 
+    "name": "clvm02"
+}

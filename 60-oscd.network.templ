@@ -1,0 +1,7 @@
+[Match]
+Name={{ .Iface }}
+
+[Network]
+Address={{ .IPAddress }}/{{ .Netmask }}
+Gateway={{ .Gateway }}{{ range $key, $value := .Nameservers }}
+DNS={{ $value }}{{ end }}
