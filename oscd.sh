@@ -40,7 +40,7 @@ DSUDO=/etc/sudoers.d/
 if [ ! -d ${DSUDO} ]; then
     mkdir -p ${DSUDO}
 fi
-echo ${mysudo} > ${DSUSO}/10-oscd.clear
+echo ${mysudo} > ${DSUDO}/10-oscd.clear
 cd ${WORKDIR}
 cp oscd.service /usr/lib/systemd/system/
 #systemctl enable oscd.service
