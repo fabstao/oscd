@@ -12,6 +12,7 @@ import (
 	"net"
 	"os"
 	"os/user"
+	"strconv"
 	"strings"
 	"text/template"
 
@@ -84,7 +85,7 @@ func writeNetConfig(nfile string, nics []string) {
 		parsed.IPAddress = mynet.Networks[i].IPAddress
 		stringMask := net.IPMask(net.ParseIP(mynet.Networks[i].Netmask).To4())
 		length, _ := stringMask.Size()
-		parsed.Netmask = string(length)
+		parsed.Netmask = strconv.Itoa(length)
 		fmt.Println("CIDR: ", parsed.Netmask)
 		for _, ns := range mynet.Services {
 			parsed.Nameservers = append(parsed.Nameservers, ns.Address)
