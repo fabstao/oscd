@@ -26,8 +26,11 @@ if [ ! -d /configdrive ]; then
 fi
 
 if [ ! -b /dev/sr0 ]; then
-    echo "ERROR no support for fake CD"
-    exit 1
+    sleep 5
+    if [ ! -b /dev/sr0 ]; then
+        echo "ERROR no support for fake CD"
+        exit 1
+    fi
 fi
 
 echo "Attempting to read from ConfigDrive"
