@@ -44,6 +44,9 @@ cp oscd.service /usr/lib/systemd/system/
 #systemctl enable oscd.service
 ${OSCD} --nics=${IFACE} --network=${NETWORK} --meta=${META}
 cp hostname /etc/hostname
+if [ ! -d /etc/systemd/network ]; then
+    mkdir -p /etc/systemd/network
+fi
 cp 60-oscd.network /etc/systemd/network/
 user
 
