@@ -18,15 +18,14 @@ OSCD=${WORKDIR}/oscd
 NETWORK=/configdrive/openstack/latest/network_data.json
 META=/configdrive/openstack/latest/meta_data.json
 
-IFACES=$(awk '/vnet|face/ { next; } /e[n,t].*/ {print $1}' /proc/net/dev | grep -v FACE)
-IFACE=$(echo ${IFACES} | sed 's/\://g' | head -1)
+sleep 3 # Wait for parallelized systemd tasks to bring necessary devices
 
 if [ ! -d /configdrive ]; then
     mkdir -p /configdrive
 fi
 
 if [ ! -b /dev/sr0 ]; then
-    sleep 5
+    sleep 2
     if [ ! -b /dev/sr0 ]; then
         echo "ERROR no support for fake CD"
         exit 1
@@ -35,6 +34,9 @@ fi
 
 echo "Attempting to read from ConfigDrive"
 mount /dev/sr0 /configdrive
+
+IFACES=$(awk '/vnet|face/ { next; } /e[n,t].*/ {print $1}' /proc/net/dev | grep -v FACE)
+IFACE=$(echo ${IFACES} | sed 's/\://g' | head -1)
 
 mysudo="clear ALL=(ALL) NOPASSWD:ALL"
 DSUDO=/etc/sudoers.d/
