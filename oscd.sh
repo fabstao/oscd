@@ -58,3 +58,6 @@ user
 #Cleaning up
 umount /configdrive
 rm -rf /configdrive
+
+systemctl restart systemd-networkd.service
+hostname $(cat /etc/hostname)
