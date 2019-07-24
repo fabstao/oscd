@@ -66,4 +66,5 @@ echo "Attempting to grow root fs"
 rootfs=$(mount | awk '/on \/ / {print $1}')
 disk=$(echo ${rootfs} | tr -d "[0-9]")
 partnumb=$(echo ${rootfs} | tr -cd "[:digit:]")
+chmod 0755 /usr/local/oscd/growpart
 /usr/local/oscd/growpart ${disk} ${partnumb}
