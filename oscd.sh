@@ -61,3 +61,9 @@ rm -rf /configdrive
 
 systemctl restart systemd-networkd.service
 hostname $(cat /etc/hostname)
+
+echo "Attempting to grow root fs"
+rootfs=$(mount | awk '/on \/ / {print $1}')
+disk=$(echo ${rootfs} | tr -d "[0-9]")
+partnumb=$(echo ${rootfs} | tr -cd "[:digit:]")
+/usr/local/oscd/growpart ${disk} ${partnumb}
