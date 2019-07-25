@@ -18,7 +18,7 @@ OSCD=${WORKDIR}/oscd
 NETWORK=/configdrive/openstack/latest/network_data.json
 META=/configdrive/openstack/latest/meta_data.json
 
-sleep 3 # Wait for parallelized systemd tasks to bring necessary devices
+sleep 5 # Wait for parallelized systemd tasks to bring necessary devices
 
 if [ ! -d /configdrive ]; then
     mkdir -p /configdrive
