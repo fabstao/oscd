@@ -38,12 +38,14 @@ mount /dev/sr0 /configdrive
 IFACES=$(awk '/vnet|face/ { next; } /e[n,t].*/ {print $1}' /proc/net/dev | grep -v FACE)
 IFACE=$(echo ${IFACES} | sed 's/\://g' | head -1)
 
-mysudo="clear ALL=(ALL) NOPASSWD:ALL"
+mysudo1="clear ALL=(ALL) NOPASSWD:ALL"
+mysudo2="root ALL=(ALL) NOPASSWD:ALL"
 DSUDO=/etc/sudoers.d/
 if [ ! -d ${DSUDO} ]; then
     mkdir -p ${DSUDO}
 fi
-echo ${mysudo} > ${DSUDO}/10-oscd-user
+echo ${mysudo1} > ${DSUDO}/10-oscd-user
+echo ${mysudo2} >> ${DSUDO}/10-oscd-user
 cd ${WORKDIR}
 cp oscd.service /usr/lib/systemd/system/
 #systemctl enable oscd.service
