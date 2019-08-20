@@ -76,7 +76,11 @@ resize2fs ${rootfs}
 echo
 echo "Reading user_data if found"
 if [ -f ${UDATA} ]; then
+    echo ""
+    echo "Found user_data"
+    echo "---------------"
+    echo ""
     cp ${UDATA} /tmp
     chmod 0755 /tmp/user_data
-    /tmp/user_data
+    bash /tmp/user_data
 fi
