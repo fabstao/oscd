@@ -71,3 +71,11 @@ partnumb=$(echo ${rootfs} | tr -cd "[:digit:]")
 chmod 0755 /usr/local/oscd/growpart
 /usr/local/oscd/growpart ${disk} ${partnumb}
 resize2fs ${rootfs}
+
+echo
+echo "Reading user_data if found"
+if [ -f ${UDATA} ]; then
+    cp ${UDATA} /tmp
+    chmod 0755 /tmp/user_data
+    /tmp/user_data
+fi
