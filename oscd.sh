@@ -17,6 +17,7 @@ WORKDIR=/usr/local/oscd
 OSCD=${WORKDIR}/oscd
 NETWORK=/configdrive/openstack/latest/network_data.json
 META=/configdrive/openstack/latest/meta_data.json
+UDATA=/configdrive/openstack/latest/user_data
 
 sleep 3 # Wait for parallelized systemd tasks to bring necessary devices
 
@@ -69,3 +70,11 @@ partnumb=$(echo ${rootfs} | tr -cd "[:digit:]")
 chmod 0755 /usr/local/oscd/growpart
 /usr/local/oscd/growpart ${disk} ${partnumb}
 resize2fs ${rootfs}
+
+echo
+echo "Reading user_data if found"
+if [ -f ${UDATA} ]; then
+    cp ${UDATA} /tmp
+    chmod 0755 /tmp/user_data
+    /tmp/user_data
+fi
