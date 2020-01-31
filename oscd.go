@@ -1,7 +1,10 @@
 /*********************************************
- * (C) Intel Corp 2019
- * Fabian Salamanca fabian.salamanca@intel.com
+ *
+ * (C) 2019
+ * Fabian Salamanca - fabian@nuo.com.mx
+ *
  *********************************************/
+
 package main
 
 import (

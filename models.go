@@ -1,3 +1,11 @@
+/*********************************************
+ *
+ * (C) 2019
+ * Fabian Salamanca - fabian@nuo.com.mx
+ *
+ *********************************************/
+
+
 package main
 
 // Network for unmarshalling
